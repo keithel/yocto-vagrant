@@ -1,0 +1,16 @@
+---
+
+#  - hosts: all
+#    sudo: true
+
+  - name: Update packages
+    apt: update_cache=yes
+    sudo: true
+
+  - name: install misc packages
+    apt: name={{ item }} state=latest
+    with_items:
+      - git-core
+      - curl
+      - unzip
+      - vim
