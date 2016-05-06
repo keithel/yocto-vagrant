@@ -1,0 +1,11 @@
+---
+
+#  - hosts: all
+#    sudo: true
+
+
+  - name: install OpenEmbedded Self-Test (oe-selftest) tools
+    apt: name={{ item }} state=latest
+    with_items:
+      - python-git
+

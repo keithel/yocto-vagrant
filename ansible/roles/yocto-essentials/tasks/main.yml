@@ -1,0 +1,20 @@
+---
+
+#  - hosts: all
+#    sudo: true
+
+
+  - name: install Yocto Essentials
+    apt: name={{ item }} state=latest
+    with_items:
+      - gawk
+      - wget
+      - git-core
+      - diffstat
+      - unzip
+      - texinfo
+      - gcc-multilib
+      - build-essential
+      - chrpath
+      - socat
+

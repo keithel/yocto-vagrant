@@ -1,0 +1,15 @@
+---
+
+#  - hosts: all
+#    sudo: true
+
+
+  - name: install Yocto ADT Installer Extras
+    apt: name={{ item }} state=latest
+    with_items:
+      - autoconf
+      - automake
+      - libtool
+      - libglib2.0-dev
+      - libarchive-dev
+

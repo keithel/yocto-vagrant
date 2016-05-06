@@ -1,5 +1,9 @@
 ---
-# This playbook deploys the whole application stack in this site.  
+# This playbook deploys all tools necessary to do yocto builds.
+# Only the 'yocto-essentials' role is required for doing standard
+# yocto builds - the other yocto and oe roles are for other purposes.
+# For more details on yocto required packages visit:
+#    http://www.yoctoproject.org/docs/2.0/ref-manual/ref-manual.html#required-packages-for-the-host-development-system
 
 - name: apply common configuration to all nodes
   hosts: all
@@ -8,4 +12,7 @@
 
   roles:
     - common
-
+    - yocto-essentials
+    - yocto-documentation-tools
+    - yocto-adt-installer-extras
+    - oe-selftest
