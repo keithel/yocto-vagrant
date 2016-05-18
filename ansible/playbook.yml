@@ -16,3 +16,9 @@
     - yocto-documentation-tools
     - yocto-adt-installer-extras
     - oe-selftest
+
+- name: Yocto user-specific provisioning
+  hosts: all
+
+  roles:
+    - poky

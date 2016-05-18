@@ -1,0 +1,20 @@
+---
+
+#  - hosts: all
+#    sudo: true
+
+  - name: Clone Yocto Poky Linux repo and checkout the krogoth version (latest as of 20160509)
+    git: repo=git://git.yoctoproject.org/poky version=krogoth dest=yocto/poky
+
+  - name: Clone bb repo providing a tool that makes is nice to navigate yocto
+    git: repo=https://github.com/kergoth/bb.git dest=bb
+
+  - name: Update home profile to add bb to PATH
+    lineinfile:
+      dest=/home/vagrant/.profile
+      line='PATH="$HOME/bb/bin:$PATH"'
+      regexp='^PATH="$HOME/bb/bin'
+      owner=vagrant
+      state=present
+      insertafter=EOF
+      create=True
